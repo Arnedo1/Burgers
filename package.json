@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://Arnedo1.github.io/yBurgers",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

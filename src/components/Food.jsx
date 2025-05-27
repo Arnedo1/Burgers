@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { data } from '../data/data'
 
-const Food = () => {
+const Food = (props) => {
     const [ foods, setFoods ] = useState( data )
+    
+   
     console.log( data )
 
     // filter type burger/pizza/etc
@@ -49,7 +51,10 @@ const Food = () => {
             {/* display foods */ }
             <div className='grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4'>
                 { foods.map( ( item, index ) => (
-                    <div key={ index } className='border-gray-400 rounded-lg shadow-lg hover:scale-105 duration-300'>
+                    <div onClick={()=> {
+                        props.setOverlay(!props.overlay)
+                        props.setSelected(item) }} key={ index } className='border-gray-400 rounded-lg shadow-lg hover:scale-105 duration-300'>
+                    
                         <img src={ item.image } alt={ item.name } className='w-full h-[200px] rounded-t-lg object-cover' />
                         <div className='flex justify-between px-2 py-4'>
                             <p className='font-bold'>{ item.name }</p>
@@ -60,6 +65,7 @@ const Food = () => {
                     </div> ) ) }
             </div>
         </div>
+        
     )
 }
 
